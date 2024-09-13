@@ -279,8 +279,8 @@ const ReduxMap = ({
       });
 
       if (polygons.length) {
-        const union = turf.union(turf.featureCollection(polygons));
-        totalArea = turf.area(union) / acreDiv;
+        const punion = turf.union(turf.featureCollection(polygons));
+        totalArea = turf.area(punion) / acreDiv;
       }
     }
 
@@ -434,15 +434,15 @@ const ReduxMap = ({
               console.log('Finished processing the shapefile.');
               mapContainer.current.scrollIntoView();
 
-              const featureCollection = {
+              const fc = {
                 type: 'FeatureCollection',
                 features: layers,
               };
-              const [avgLon, avgLat] = turf.centroid(featureCollection).geometry.coordinates;
+              const [avgLon, avgLat] = turf.centroid(fc).geometry.coordinates;
 
               setFeatures(layers);
-              setBounds(turf.bbox(featureCollection));
-              setPolygonArea(turf.area(featureCollection) / acreDiv);
+              setBounds(turf.bbox(fc));
+              setPolygonArea(turf.area(fc) / acreDiv);
               setLat(avgLat);
               setLon(avgLon);
             });
@@ -916,10 +916,10 @@ const ReduxMap = ({
           });
         }
 
-        map.current.addPolygon = (id, polygon, options = {}) => {
-          if (typeof polygon === 'string') {
-            console.log(polygon);
-            fetch(polygon)
+        map.current.addPolygon = (id, poly, options = {}) => {
+          if (typeof poly === 'string') {
+            console.log(poly);
+            fetch(poly)
               .then((response) => response.json())
               .then((data) => {
                 if (data.length) {
@@ -961,7 +961,7 @@ const ReduxMap = ({
               type: 'Feature',
               geometry: {
                 type: 'Polygon',
-                coordinates: polygon,
+                coordinates: poly,
               },
             },
           });
@@ -1012,7 +1012,7 @@ const ReduxMap = ({
               type: 'Feature',
               geometry: {
                 type: 'Polygon',
-                coordinates: polygon,
+                coordinates: poly,
               },
             });
 
