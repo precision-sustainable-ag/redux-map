@@ -4,7 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import mapboxgl from 'mapbox-gl';
 import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import * as turf from '@turf/turf';
+
+import area from '@turf/area';
+import bbox from '@turf/bbox';
+import union from '@turf/union';
+import centroid from '@turf/centroid';
+import { polygon, featureCollection } from '@turf/helpers';
+
 import * as shapefile from 'shapefile';
 import { geocodeReverse, coordinatesGeocoder } from './helpers';
 
@@ -19,6 +25,15 @@ import './mapbox-gl.css';
 import './mapbox-gl-draw.css';
 import './mapbox-gl-geocoder.css';
 import './psa-mapbox.scss';
+
+const turf = {
+  area,
+  polygon,
+  bbox,
+  union,
+  featureCollection,
+  centroid,
+};
 
 const MAPBOX_TOKEN = typeof process !== 'undefined'
   ? process.env.REACT_APP_MAPBOX_API_KEY
