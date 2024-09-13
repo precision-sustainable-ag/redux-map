@@ -1,5 +1,5 @@
 {
-  "name": "map",
+  "name": "redux-map",
   "version": "1.0.0",
   "description": "Redux Map",
   "main": "index.jsx",
