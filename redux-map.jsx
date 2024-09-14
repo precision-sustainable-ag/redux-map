@@ -2,12 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import mapboxgl from 'mapbox-gl';
-let MapboxDraw;
-
-import('@mapbox/mapbox-gl-draw').then((module) => {
-  MapboxDraw = module.default || module;
-});
-
+import MapboxDraw from '@mapbox/mapbox-gl-draw';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 import area from '@turf/area';
