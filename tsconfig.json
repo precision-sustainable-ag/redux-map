@@ -7,8 +7,10 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "jsx": "react"
   },
-  "include": ["*/**/*"],
+  "include": ["./**/*.jsx"],
   "exclude": ["node_modules"]
 }
