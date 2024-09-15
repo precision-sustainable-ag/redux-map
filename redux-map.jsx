@@ -13,7 +13,6 @@ const MAPBOX_TOKEN = typeof process !== 'undefined'
 let mapboxgl;
 import('mapbox-gl').then((module) => {
   mapboxgl = module.default || module;
-  mapboxgl.accessToken = MAPBOX_TOKEN;
 });
 
 let MapboxDraw;
@@ -566,6 +565,7 @@ const ReduxMap = ({
     // initialize map only once
     if (!map.current) {
       const Map = new mapboxgl.Map({
+        accessToken: MAPBOX_TOKEN,
         container: mapContainer.current,
         style: layer,
         center: [lon, lat],
