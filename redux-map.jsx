@@ -1,15 +1,19 @@
 /* eslint-disable no-underscore-dangle */
-console.log(1);
 import React, { useRef, useEffect, useState } from 'react';
-console.log(2);
 import { useSelector, useDispatch } from 'react-redux';
-console.log(3);
 import mapboxgl from 'mapbox-gl';
-console.log(4);
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-console.log(5);
-import MapboxDraw from '@mapbox/mapbox-gl-draw';
-console.log(6);
+// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+// import MapboxDraw from '@mapbox/mapbox-gl-draw';
+
+let MapboxDraw;
+import('@mapbox/mapbox-gl-draw').then((module) => {
+  MapboxDraw = module.default || module;
+});
+
+let MapboxGeocoder;
+import('@mapbox/mapbox-gl-geocoder').then((module) => {
+  MapboxGeocoder = module.default || module;
+});
 
 import area from '@turf/area';
 import bbox from '@turf/bbox';
