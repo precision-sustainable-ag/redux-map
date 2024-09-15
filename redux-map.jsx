@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import mapboxgl from 'mapbox-gl';
+// import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 // import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
