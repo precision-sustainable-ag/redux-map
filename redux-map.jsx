@@ -10,26 +10,6 @@ const MAPBOX_TOKEN = typeof process !== 'undefined'
   ? process.env.REACT_APP_MAPBOX_API_KEY
   : import.meta.env.VITE_MAPBOX_API_KEY;
 
-// let mapboxgl;
-// import('mapbox-gl').then((module) => {
-//   mapboxgl = module.default || module;
-//   console.log(module.default);
-//   console.log(module);
-// });
-
-// let MapboxDraw;
-// import('@mapbox/mapbox-gl-draw').then((module) => {
-//   MapboxDraw = module.default || module;
-//   console.log(module);
-//   console.log('_'.repeat(40));
-//   console.log(module.default);
-// });
-
-// let MapboxGeocoder;
-// import('@mapbox/mapbox-gl-geocoder').then((module) => {
-//   MapboxGeocoder = module.default || module;
-// });
-
 import area from '@turf/area';
 import bbox from '@turf/bbox';
 import union from '@turf/union';
