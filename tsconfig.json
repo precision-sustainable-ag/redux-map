@@ -1,16 +1,10 @@
 {
+  "extends": "./node_modules/@teambit/react/typescript/tsconfig.json",
+  // "include": [],
   "compilerOptions": {
-    "target": "ES6",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "strict": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowJs": true,
-    "jsx": "react"
+    "noEmit": true
   },
-  "include": ["./**/*.jsx"],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "dist"
+  ]
 }

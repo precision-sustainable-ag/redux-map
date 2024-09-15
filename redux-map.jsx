@@ -1,9 +1,15 @@
 /* eslint-disable no-underscore-dangle */
+console.log(1);
 import React, { useRef, useEffect, useState } from 'react';
+console.log(2);
 import { useSelector, useDispatch } from 'react-redux';
+console.log(3);
 import mapboxgl from 'mapbox-gl';
-import MapboxDraw from '@mapbox/mapbox-gl-draw';
+console.log(4);
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+console.log(5);
+import MapboxDraw from '@mapbox/mapbox-gl-draw';
+console.log(6);
 
 import area from '@turf/area';
 import bbox from '@turf/bbox';
