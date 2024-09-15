@@ -9,6 +9,8 @@
   "author": "Rick Hitchcock",
   "license": "ISC",
   "dependencies": {
+    "@mapbox/mapbox-gl-draw": "^1.4.3",
+    "@mapbox/mapbox-gl-geocoder": "^5.0.3",
     "@testing-library/react": "^16.0.1",
     "@turf/area": "^7.1.0",
     "@turf/bbox": "^7.1.0",
@@ -20,5 +22,9 @@
     "react": "^18.3.1",
     "react-redux": "^9.1.2",
     "shapefile": "^0.6.6"
-  }
+  },
+  "peerDependencies": {
+    "@mapbox/mapbox-gl-draw": "^1.4.3",
+    "@mapbox/mapbox-gl-geocoder": "^5.0.3"
+  }  
 }
