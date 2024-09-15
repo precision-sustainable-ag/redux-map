@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // import mapboxgl from 'mapbox-gl';
-// import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 // import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
 const MAPBOX_TOKEN = typeof process !== 'undefined'
@@ -20,10 +20,10 @@ import('@mapbox/mapbox-gl-draw').then((module) => {
   MapboxDraw = module.default || module;
 });
 
-let MapboxGeocoder;
-import('@mapbox/mapbox-gl-geocoder').then((module) => {
-  MapboxGeocoder = module.default || module;
-});
+// let MapboxGeocoder;
+// import('@mapbox/mapbox-gl-geocoder').then((module) => {
+//   MapboxGeocoder = module.default || module;
+// });
 
 import area from '@turf/area';
 import bbox from '@turf/bbox';
