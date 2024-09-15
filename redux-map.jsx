@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-// import mapboxgl from 'mapbox-gl';
+import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 // import MapboxDraw from '@mapbox/mapbox-gl-draw';
 
@@ -10,14 +10,19 @@ const MAPBOX_TOKEN = typeof process !== 'undefined'
   ? process.env.REACT_APP_MAPBOX_API_KEY
   : import.meta.env.VITE_MAPBOX_API_KEY;
 
-let mapboxgl;
-import('mapbox-gl').then((module) => {
-  mapboxgl = module.default || module;
-});
+// let mapboxgl;
+// import('mapbox-gl').then((module) => {
+//   mapboxgl = module.default || module;
+//   console.log(module.default);
+//   console.log(module);
+// });
 
 let MapboxDraw;
 import('@mapbox/mapbox-gl-draw').then((module) => {
   MapboxDraw = module.default || module;
+  console.log(module);
+  console.log('_'.repeat(40));
+  console.log(module.default);
 });
 
 // let MapboxGeocoder;
