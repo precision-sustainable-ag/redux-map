@@ -1,9 +1,20 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import mapboxgl from 'mapbox-gl';
+
+// import mapboxgl from 'mapbox-gl';
 // import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 // import MapboxDraw from '@mapbox/mapbox-gl-draw';
+
+const MAPBOX_TOKEN = typeof process !== 'undefined'
+  ? process.env.REACT_APP_MAPBOX_API_KEY
+  : import.meta.env.VITE_MAPBOX_API_KEY;
+
+let mapboxgl;
+import('mapbox-gl').then((module) => {
+  mapboxgl = module.default || module;
+  mapboxgl.accessToken = MAPBOX_TOKEN;
+});
 
 let MapboxDraw;
 import('@mapbox/mapbox-gl-draw').then((module) => {
@@ -44,12 +55,6 @@ const turf = {
   featureCollection,
   centroid,
 };
-
-const MAPBOX_TOKEN = typeof process !== 'undefined'
-  ? process.env.REACT_APP_MAPBOX_API_KEY
-  : import.meta.env.VITE_MAPBOX_API_KEY;
-
-mapboxgl.accessToken = MAPBOX_TOKEN;
 
 const conus = [
   [-124.731422, 24.743319], // Southwest coordinates
