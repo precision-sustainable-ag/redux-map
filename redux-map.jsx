@@ -10,12 +10,12 @@ const MAPBOX_TOKEN = typeof process !== 'undefined'
   ? process.env.REACT_APP_MAPBOX_API_KEY
   : import.meta.env.VITE_MAPBOX_API_KEY;
 
-// let mapboxgl;
-// import('mapbox-gl').then((module) => {
-//   mapboxgl = module.default || module;
-//   console.log(module.default);
-//   console.log(module);
-// });
+let mapboxgl;
+import('mapbox-gl').then((module) => {
+  mapboxgl = module.default || module;
+  console.log(module.default);
+  console.log(module);
+});
 
 let MapboxDraw;
 import('@mapbox/mapbox-gl-draw').then((module) => {
