@@ -1,6 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React, { useRef, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import wellknown from 'wellknown';
 
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
@@ -926,6 +927,9 @@ const ReduxMap = ({
                   map.current.addPolygon(id, data[0].polygonarray[0], options);
                 } else if (data.polygonarray) { // doesn't work for all hardiness zones !!!
                   map.current.addPolygon(id, data.polygonarray[0], options);
+                } else if (data.polygon) {
+                  const geojson = wellknown(data.polygon);
+                  map.current.addPolygon(id, geojson, options);
                 }
               });
             return;
@@ -957,11 +961,13 @@ const ReduxMap = ({
 
           map.current.addSource(id, {
             type: 'geojson',
-            data: {
-              type: 'Feature',
-              geometry: {
-                type: 'Polygon',
-                coordinates: poly,
+            data: /Polygon/.test(poly.type)
+              ? poly
+              : {
+                type: 'Feature',
+                geometry: {
+                  type: 'Polygon',
+                  coordinates: poly,
               },
             },
           });
@@ -1008,13 +1014,17 @@ const ReduxMap = ({
           });
 
           if (options.fitBounds) {
-            const boundingBox = turf.bbox({
-              type: 'Feature',
-              geometry: {
-                type: 'Polygon',
-                coordinates: poly,
-              },
-            });
+            const boundingBox = turf.bbox(
+              /Polygon/.test(poly.type)
+                ? poly
+                : {
+                  type: 'Feature',
+                  geometry: {
+                    type: 'Polygon',
+                    coordinates: poly,
+                  },
+                }
+            );
 
             map.current.fitBounds(boundingBox, {
               padding: boundsPadding,

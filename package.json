@@ -18,6 +18,7 @@
     "@turf/helpers": "^7.1.0",
     "@turf/union": "^7.1.0",
     "mapbox-gl": "^3.6.0",
-    "shapefile": "^0.6.6"
+    "shapefile": "^0.6.6",
+    "wellknown": "^0.5.0"
   }
 }
